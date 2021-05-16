@@ -1,5 +1,5 @@
 {{ define "title" }}
-  {{ .Title }} &ndash; {{ .Site.Title }}
+{{ .Title }} &ndash; {{ .Site.Title }}
 {{ end }}
 
 
@@ -11,8 +11,8 @@
   {{ .Content }}
 
   {{ range .Paginator.Pages }}
-    <!-- single page card -->
-    {{ partial "card.page.html" . }}
+  <!-- single page card -->
+  {{ partial "card.page.html" . }}
   {{ end }}
 
   <!-- paginator nav -->
@@ -23,7 +23,9 @@
 
 {{ end }}
 
-
 {{ define "side" }}
-  {{ partial "side.taxonomy.html" . }}
+{{ if .Type }}
+{{ else }}
+{{ partial "side.taxonomy.html" . }}
+{{ end }}
 {{ end }}
